@@ -1,0 +1,21 @@
+构建容器并进入
+docker run -t -i  /bin/bash
+
+进入容器
+docker exec -it  /bin/bash
+
+运行composer
+docker-compose run --rm -w /data/www/slim php-fpm72 composer update
+docker-compose run --rm --user www-data -w /data/www/slim php-fpm72 composer update
+
+
+composer create-project laravel/laravel laravel --prefer-dist "5.5.*"
+docker-compose run --rm -w /data/www php-fpm72 composer create-project laravel/laravel laravel --prefer-dist "5.5.*"
+
+
+composer global require "squizlabs/php_codesniffer=*"
+composer global config bin-dir --absolute
+
+
+        && pecl install xdebug-2.5.0 \
+
